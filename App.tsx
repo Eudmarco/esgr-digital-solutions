@@ -17,24 +17,10 @@ export type Page = 'home' | 'services' | 'why-us';
 
 function App() {
   const [page, setPage] = useState<Page>('home');
-  const [loaded, setLoaded] = useState(false);
   const [showCookieConsent, setShowCookieConsent] = useState(false);
   const [isModalOpen, setIsModalOpen] = useState(false);
   const [modalContentKey, setModalContentKey] = useState<LegalDocKey | null>(null);
   const [isScrollToTopVisible, setIsScrollToTopVisible] = useState(false);
-
-  useEffect(() => {
-    const preloader = document.getElementById('preloader');
-    if (preloader) {
-      setTimeout(() => {
-        preloader.classList.add('fade-out');
-        setTimeout(() => {
-          preloader.style.display = 'none';
-          setLoaded(true);
-        }, 800); 
-      }, 2500);
-    }
-  }, []);
 
   useEffect(() => {
     window.scrollTo(0, 0);
@@ -123,7 +109,7 @@ function App() {
   const modalDoc = modalContentKey ? LEGAL_DOCS[modalContentKey] : null;
 
   return (
-    <div className={`bg-black text-white font-sans main-content ${loaded ? 'loaded' : ''}`}>
+    <div className="bg-black text-white font-sans">
       <Header setPage={setPage} page={page} />
       <main>
         {renderPage()}

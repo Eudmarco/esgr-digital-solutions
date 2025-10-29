@@ -1,4 +1,4 @@
 User-agent: *
 Allow: /
 
-Sitemap: https://www.esgr.com.br/sitemap.xml
+Sitemap: https://www.esgrmkt.com.br/sitemap.xml
